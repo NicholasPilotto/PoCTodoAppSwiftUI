@@ -30,6 +30,7 @@
 		50C7AF2A2A39071A005A95CA /* TodoAppSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7AF292A39071A005A95CA /* TodoAppSwiftUITests.swift */; };
 		50C7AF342A39071A005A95CA /* TodoAppSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7AF332A39071A005A95CA /* TodoAppSwiftUIUITests.swift */; };
 		50C7AF362A39071A005A95CA /* TodoAppSwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7AF352A39071A005A95CA /* TodoAppSwiftUIUITestsLaunchTests.swift */; };
+		50D032652A3B921700A36E7B /* TLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D032642A3B921700A36E7B /* TLButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		50C7AF2F2A39071A005A95CA /* TodoAppSwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoAppSwiftUIUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C7AF332A39071A005A95CA /* TodoAppSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAppSwiftUIUITests.swift; sourceTree = "<group>"; };
 		50C7AF352A39071A005A95CA /* TodoAppSwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAppSwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		50D032642A3B921700A36E7B /* TLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				509DE0EC2A3A4FDC009412E7 /* NewItemView.swift */,
 				509DE0EE2A3A4FF0009412E7 /* LoginView.swift */,
 				509DE0F02A3A5002009412E7 /* RegisterView.swift */,
+				50D032642A3B921700A36E7B /* TLButton.swift */,
 				509DE0F22A3A5036009412E7 /* ToDoListItemView.swift */,
 				509DE1062A3A5387009412E7 /* HeaderView.swift */,
 			);
@@ -344,6 +347,7 @@
 				509DE1032A3A50E4009412E7 /* RegisterViewModel.swift in Sources */,
 				509DE0EB2A3A4FC7009412E7 /* ToDoListItemsView.swift in Sources */,
 				509DE0F12A3A5002009412E7 /* RegisterView.swift in Sources */,
+				50D032652A3B921700A36E7B /* TLButton.swift in Sources */,
 				509DE0FB2A3A50A3009412E7 /* ProfileiewModel.swift in Sources */,
 				509DE0E92A3A4F31009412E7 /* ProfileView.swift in Sources */,
 				509DE0F52A3A5068009412E7 /* User.swift in Sources */,
