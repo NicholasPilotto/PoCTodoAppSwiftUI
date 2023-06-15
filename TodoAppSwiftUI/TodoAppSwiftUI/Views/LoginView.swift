@@ -8,33 +8,24 @@
 import SwiftUI
 
 struct LoginView: View {
-  @State var email = ""
-  @State var password = ""
+  @State var viewModel = LoginViewModel()
   
   var body: some View {
     NavigationView {
-      
       VStack {
         HeaderView(title: "ToDo List", subtitle: "Get things done", angle: 15, background: .pink)
         Form {
-          TextField("Email Address", text: $email)
+          TextField("Email Address", text: $viewModel.email)
             .textFieldStyle(DefaultTextFieldStyle())
-          SecureField("Password", text: $password)
+            .autocapitalization(.none)
+            .autocorrectionDisabled()
+          
+          SecureField("Password", text: $viewModel.password)
             .textFieldStyle(DefaultTextFieldStyle())
           
-          Button {
+          TLButton(title: "Log In", background: .blue, action: {
             
-          } label: {
-            ZStack {
-              RoundedRectangle(cornerRadius: 10)
-                .foregroundColor(Color.blue)
-              
-              Text("Log In")
-                .foregroundColor(Color.white)
-                .bold()
-            }
-          }
-          .padding()
+          })
         }
         .background(Color.white)
         .offset(y: -50)
@@ -50,6 +41,7 @@ struct LoginView: View {
     }
   }
 }
+
 
 struct LoginView_Previews: PreviewProvider {
   static var previews: some View {
