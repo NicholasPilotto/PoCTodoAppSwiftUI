@@ -15,7 +15,7 @@ struct LoginView: View {
     NavigationView {
       
       VStack {
-        HeaderView()
+        HeaderView(title: "ToDo List", subtitle: "Get things done", angle: 15, background: .pink)
         Form {
           TextField("Email Address", text: $email)
             .textFieldStyle(DefaultTextFieldStyle())
@@ -36,6 +36,9 @@ struct LoginView: View {
           }
           .padding()
         }
+        .background(Color.white)
+        .offset(y: -50)
+        
         VStack {
           Text("New around here?")
           NavigationLink("Create an account", destination: RegisterView())
