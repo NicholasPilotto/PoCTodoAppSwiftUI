@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		508D4FA32A3DD6CA00762EFD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 508D4FA22A3DD6CA00762EFD /* Realm */; };
 		508D4FA52A3DD6CA00762EFD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 508D4FA42A3DD6CA00762EFD /* RealmSwift */; };
+		508D4FA72A3DD8ED00762EFD /* String+isValidEmailAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D4FA62A3DD8ED00762EFD /* String+isValidEmailAddress.swift */; };
+		508D4FAA2A3DD97B00762EFD /* String+isCompletelyEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D4FA92A3DD97B00762EFD /* String+isCompletelyEmpty.swift */; };
 		509DE0E92A3A4F31009412E7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DE0E82A3A4F31009412E7 /* ProfileView.swift */; };
 		509DE0EB2A3A4FC7009412E7 /* ToDoListItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DE0EA2A3A4FC7009412E7 /* ToDoListItemsView.swift */; };
 		509DE0ED2A3A4FDC009412E7 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DE0EC2A3A4FDC009412E7 /* NewItemView.swift */; };
@@ -53,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		508D4FA62A3DD8ED00762EFD /* String+isValidEmailAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValidEmailAddress.swift"; sourceTree = "<group>"; };
+		508D4FA92A3DD97B00762EFD /* String+isCompletelyEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isCompletelyEmpty.swift"; sourceTree = "<group>"; };
 		509DE0E82A3A4F31009412E7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		509DE0EA2A3A4FC7009412E7 /* ToDoListItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItemsView.swift; sourceTree = "<group>"; };
 		509DE0EC2A3A4FDC009412E7 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
@@ -117,6 +121,15 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		508D4FA82A3DD94700762EFD /* String */ = {
+			isa = PBXGroup;
+			children = (
+				508D4FA62A3DD8ED00762EFD /* String+isValidEmailAddress.swift */,
+				508D4FA92A3DD97B00762EFD /* String+isCompletelyEmpty.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		509DE0E32A3A4EA5009412E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +172,7 @@
 		509DE0E72A3A4ED7009412E7 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				508D4FA82A3DD94700762EFD /* String */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -364,7 +378,9 @@
 				50C7AF1B2A390719005A95CA /* MainView.swift in Sources */,
 				509DE0F92A3A5096009412E7 /* MainViewModel.swift in Sources */,
 				509DE1032A3A50E4009412E7 /* RegisterViewModel.swift in Sources */,
+				508D4FAA2A3DD97B00762EFD /* String+isCompletelyEmpty.swift in Sources */,
 				509DE0EB2A3A4FC7009412E7 /* ToDoListItemsView.swift in Sources */,
+				508D4FA72A3DD8ED00762EFD /* String+isValidEmailAddress.swift in Sources */,
 				509DE0F12A3A5002009412E7 /* RegisterView.swift in Sources */,
 				50D032652A3B921700A36E7B /* TLButton.swift in Sources */,
 				509DE0FB2A3A50A3009412E7 /* ProfileiewModel.swift in Sources */,
@@ -539,6 +555,8 @@
 				DEVELOPMENT_TEAM = T4RHZJK2YW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ToDoS;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -568,6 +586,8 @@
 				DEVELOPMENT_TEAM = T4RHZJK2YW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ToDoS;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
