@@ -13,9 +13,19 @@ class RealmService {
   
   static let shared = RealmService()
   
+  private var realmConfiguration: Realm.Configuration = {
+    var key = Data(count: 64)
+    _ = key.withUnsafeMutableBytes({ (pointer: UnsafeMutableRawBufferPointer) in
+      SecRandomCopyBytes(kSecRandomDefault, 64, pointer.baseAddress!)
+    })
+    
+    let config = Realm.Configuration(encryptionKey: key)
+    return config
+  }()
+  
   private init() {
     do {
-      database = try Realm()
+      database = try Realm(configuration: realmConfiguration)
     } catch {
       fatalError(error.localizedDescription)
     }
