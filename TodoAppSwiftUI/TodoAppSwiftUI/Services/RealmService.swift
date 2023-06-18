@@ -1,0 +1,106 @@
+//
+//  RealmService.swift
+//  TodoAppSwiftUI
+//
+//  Created by Nicholas Pilotto on 18/06/23.
+//
+
+import Foundation
+import RealmSwift
+
+class RealmService {
+  private let database: Realm
+  
+  static let shared = RealmService()
+  
+  private init() {
+    do {
+      database = try Realm()
+    } catch {
+      fatalError(error.localizedDescription)
+    }
+  }
+  
+  public func fetch<T: Object>(object: T, completion: @escaping (Result<Void, Error>) -> Void) {
+    do {
+      try database.write {
+        database.add(object)
+        completion(.success(()))
+      }
+    } catch {
+      completion(.failure(error))
+    }
+  }
+  
+  public func save<T: Object>(object: T, completion: @escaping (Result<Void, Error>) -> Void) {
+    do {
+      try database.write {
+        database.add(object)
+        completion(.success(()))
+      }
+    }
+    catch {
+      completion(.failure(error))
+    }
+  }
+  
+  public func update<T: Object>(object: T, completion: @escaping (Result<Void, Error>) -> Void) {
+    do {
+      try database.write {
+        database.add(object, update: .modified)
+        completion(.success(()))
+      }
+    }
+    catch {
+      completion(.failure(error))
+    }
+  }
+  
+  public func delete<T: Object>(object: T, completion: @escaping (Result<Void, Error>) -> Void) {
+    do {
+      try database.write {
+        database.delete(object)
+        completion(.success(()))
+      }
+    }
+    catch {
+      completion(.failure(error))
+    }
+  }
+  
+  public func deleteAll(completion: @escaping (Result<Void, Error>) -> Void) {
+    do {
+      try database.write {
+        database.deleteAll()
+        completion(.success(()))
+      }
+    }
+    catch {
+      completion(.failure(error))
+    }
+  }
+  
+  public func asyncWrite<T: ThreadConfined>(object: T,
+                                            completion: @escaping (Result<Void, Error>) -> Void,
+                                            action: @escaping ((Realm, T?) -> Void)) {
+    let threadSafeRef = ThreadSafeReference(to: object)
+    let config = self.database.configuration
+    DispatchQueue(label: "background").async {
+      autoreleasepool {
+        do {
+          let realm = try Realm(configuration: config)
+          let obj = realm.resolve(threadSafeRef)
+          
+          try realm.write {
+            action(realm, obj)
+          }
+          
+          completion(.success(()))
+        }
+        catch {
+          completion(.failure(error))
+        }
+      }
+    }
+  }
+}

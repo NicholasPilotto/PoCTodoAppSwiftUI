@@ -35,6 +35,7 @@
 		50C7AF342A39071A005A95CA /* TodoAppSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7AF332A39071A005A95CA /* TodoAppSwiftUIUITests.swift */; };
 		50C7AF362A39071A005A95CA /* TodoAppSwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7AF352A39071A005A95CA /* TodoAppSwiftUIUITestsLaunchTests.swift */; };
 		50D032652A3B921700A36E7B /* TLButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D032642A3B921700A36E7B /* TLButton.swift */; };
+		50D8DDF72A3F8D230009AD43 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D8DDF62A3F8D230009AD43 /* RealmService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		50C7AF332A39071A005A95CA /* TodoAppSwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAppSwiftUIUITests.swift; sourceTree = "<group>"; };
 		50C7AF352A39071A005A95CA /* TodoAppSwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoAppSwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		50D032642A3B921700A36E7B /* TLButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLButton.swift; sourceTree = "<group>"; };
+		50D8DDF62A3F8D230009AD43 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 		50C7AF172A390719005A95CA /* TodoAppSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				50D8DDF52A3F8D180009AD43 /* Services */,
 				508D4FA02A3DD5D600762EFD /* Assets */,
 				50C7AF182A390719005A95CA /* TodoAppSwiftUIApp.swift */,
 				509DE0E72A3A4ED7009412E7 /* Other */,
@@ -234,6 +237,14 @@
 				50C7AF352A39071A005A95CA /* TodoAppSwiftUIUITestsLaunchTests.swift */,
 			);
 			path = TodoAppSwiftUIUITests;
+			sourceTree = "<group>";
+		};
+		50D8DDF52A3F8D180009AD43 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				50D8DDF62A3F8D230009AD43 /* RealmService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				509DE0EF2A3A4FF0009412E7 /* LoginView.swift in Sources */,
+				50D8DDF72A3F8D230009AD43 /* RealmService.swift in Sources */,
 				509DE1072A3A5387009412E7 /* HeaderView.swift in Sources */,
 				50C7AF1B2A390719005A95CA /* MainView.swift in Sources */,
 				509DE0F92A3A5096009412E7 /* MainViewModel.swift in Sources */,
