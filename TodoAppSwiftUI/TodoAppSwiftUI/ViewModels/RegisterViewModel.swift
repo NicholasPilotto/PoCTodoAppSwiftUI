@@ -11,6 +11,7 @@ class RegisterViewModel: ObservableObject {
   @Published var name = ""
   @Published var email = ""
   @Published var password = ""
+  @Published var error = ""
   
   init() {}
   
@@ -30,6 +31,18 @@ class RegisterViewModel: ObservableObject {
   
   private func insertUserRecord() {
     let newUser = User(name: name, email: email, password: password)
+    RealmService.shared.save(object: newUser) { [weak self] result in
+      guard let self = self else {
+        return
+      }
+      
+      switch result {
+        case .success():
+          self.error = ""
+        case .failure(let error):
+          self.error = error.localizedDescription
+      }
+    }
   }
   
   func register() {
