@@ -25,21 +25,15 @@ class RealmService {
   
   private init() {
     do {
-      database = try Realm(configuration: realmConfiguration)
+//      database = try Realm(configuration: realmConfiguration)
+      database = try Realm()
     } catch {
       fatalError(error.localizedDescription)
     }
   }
   
-  public func fetch<T: Object>(object: T, completion: @escaping (Result<Void, Error>) -> Void) {
-    do {
-      try database.write {
-        database.add(object)
-        completion(.success(()))
-      }
-    } catch {
-      completion(.failure(error))
-    }
+  public func fetch<T: Object>(object: T.Type) -> Results<T> {
+    return database.objects(T.self)
   }
   
   public func save<T: Object>(object: T, completion: @escaping (Result<Void, Error>) -> Void) {
