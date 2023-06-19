@@ -24,8 +24,6 @@ class RegisterViewModel: ObservableObject {
       return false
     }
     
-    insertUserRecord()
-    
     return true
   }
   
@@ -39,6 +37,7 @@ class RegisterViewModel: ObservableObject {
       switch result {
         case .success():
           self.error = ""
+          
         case .failure(let error):
           self.error = error.localizedDescription
       }
@@ -49,5 +48,6 @@ class RegisterViewModel: ObservableObject {
     guard validate() else {
       return
     }
+    insertUserRecord()
   }
 }
