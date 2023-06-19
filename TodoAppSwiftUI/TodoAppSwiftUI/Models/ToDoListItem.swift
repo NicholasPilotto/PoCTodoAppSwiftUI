@@ -8,6 +8,6 @@
 import Foundation
 import RealmSwift
 
-class ToDoListItem: Object {
-  
-}
+//class ToDoListItem: Object {
+//  
+//}
