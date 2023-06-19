@@ -14,7 +14,7 @@ class User: Object {
   @Persisted var email: String
   @Persisted var password: String
   @Persisted var joined: TimeInterval
-  @Persisted var todos: List<ToDoListItem>
+//  @Persisted var todos: List<ToDoListItem>
   
   override init() {}
   
@@ -26,6 +26,6 @@ class User: Object {
     self.email = email
     self.password = password
     self.joined = Date().timeIntervalSince1970
-    self.todos = List<ToDoListItem>()
+//    self.todos = List<ToDoListItem>()
   }
 }
