@@ -37,6 +37,7 @@ class RegisterViewModel: ObservableObject {
       switch result {
         case .success():
           self.error = ""
+          UserDefaultsService.shared.userID = newUser._id
           
         case .failure(let error):
           self.error = error.localizedDescription
