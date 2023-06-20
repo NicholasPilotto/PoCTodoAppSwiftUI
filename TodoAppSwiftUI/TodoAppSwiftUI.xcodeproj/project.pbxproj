@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5040FE892A422CD50043F11C /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5040FE882A422CD50043F11C /* UserDefaultsService.swift */; };
 		508D4FA32A3DD6CA00762EFD /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 508D4FA22A3DD6CA00762EFD /* Realm */; };
 		508D4FA52A3DD6CA00762EFD /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 508D4FA42A3DD6CA00762EFD /* RealmSwift */; };
 		508D4FA72A3DD8ED00762EFD /* String+isValidEmailAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D4FA62A3DD8ED00762EFD /* String+isValidEmailAddress.swift */; };
 		508D4FAA2A3DD97B00762EFD /* String+isCompletelyEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D4FA92A3DD97B00762EFD /* String+isCompletelyEmpty.swift */; };
-		509493D22A40C67F00713CE8 /* AppDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509493D12A40C67F00713CE8 /* AppDataModel.swift */; };
 		509DE0E92A3A4F31009412E7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DE0E82A3A4F31009412E7 /* ProfileView.swift */; };
 		509DE0EB2A3A4FC7009412E7 /* ToDoListItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DE0EA2A3A4FC7009412E7 /* ToDoListItemsView.swift */; };
 		509DE0ED2A3A4FDC009412E7 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509DE0EC2A3A4FDC009412E7 /* NewItemView.swift */; };
@@ -57,9 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5040FE882A422CD50043F11C /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDefaultsService.swift; path = TodoAppSwiftUI/Services/UserDefaultsService.swift; sourceTree = SOURCE_ROOT; };
 		508D4FA62A3DD8ED00762EFD /* String+isValidEmailAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isValidEmailAddress.swift"; sourceTree = "<group>"; };
 		508D4FA92A3DD97B00762EFD /* String+isCompletelyEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+isCompletelyEmpty.swift"; sourceTree = "<group>"; };
-		509493D12A40C67F00713CE8 /* AppDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataModel.swift; sourceTree = "<group>"; };
 		509DE0E82A3A4F31009412E7 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		509DE0EA2A3A4FC7009412E7 /* ToDoListItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItemsView.swift; sourceTree = "<group>"; };
 		509DE0EC2A3A4FDC009412E7 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
@@ -169,7 +169,6 @@
 			children = (
 				509DE0F42A3A5068009412E7 /* User.swift */,
 				509DE0F62A3A5072009412E7 /* ToDoListItem.swift */,
-				509493D12A40C67F00713CE8 /* AppDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -246,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				50D8DDF62A3F8D230009AD43 /* RealmService.swift */,
+				5040FE882A422CD50043F11C /* UserDefaultsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -399,6 +399,7 @@
 				509DE0F12A3A5002009412E7 /* RegisterView.swift in Sources */,
 				50D032652A3B921700A36E7B /* TLButton.swift in Sources */,
 				509DE0FB2A3A50A3009412E7 /* ProfileViewModel.swift in Sources */,
+				5040FE892A422CD50043F11C /* UserDefaultsService.swift in Sources */,
 				509DE0E92A3A4F31009412E7 /* ProfileView.swift in Sources */,
 				509DE0F52A3A5068009412E7 /* User.swift in Sources */,
 				509DE1052A3A50F2009412E7 /* ToDoListItemViewModel.swift in Sources */,
@@ -407,7 +408,6 @@
 				509DE0F32A3A5036009412E7 /* ToDoListItemView.swift in Sources */,
 				50C7AF192A390719005A95CA /* TodoAppSwiftUIApp.swift in Sources */,
 				509DE0F72A3A5072009412E7 /* ToDoListItem.swift in Sources */,
-				509493D22A40C67F00713CE8 /* AppDataModel.swift in Sources */,
 				509DE0FD2A3A50C2009412E7 /* ToDoListItemsViewModel.swift in Sources */,
 				509DE0ED2A3A4FDC009412E7 /* NewItemView.swift in Sources */,
 			);
