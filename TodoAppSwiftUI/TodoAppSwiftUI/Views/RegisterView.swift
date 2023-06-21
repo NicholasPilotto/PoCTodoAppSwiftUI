@@ -35,10 +35,8 @@ struct RegisterView: View {
         })
       }
       .offset(y: -50)
-      
       Spacer()
     }
-    
   }
 }
 
