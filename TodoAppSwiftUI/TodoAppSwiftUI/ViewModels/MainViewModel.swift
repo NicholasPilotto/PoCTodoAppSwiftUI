@@ -10,9 +10,11 @@ import RealmSwift
 
 class MainViewModel: ObservableObject {  
   public var isSignedIn: Bool {
-      return !UserDefaultsService.shared.userID.isCompletelyEmpty
+    return !UserDefaultsService.shared.userID.isCompletelyEmpty
   }
   
-  public init() {  }
+  public init() {
+    
+  }
   
 }
