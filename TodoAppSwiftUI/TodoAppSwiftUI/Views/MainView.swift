@@ -12,15 +12,30 @@ struct MainView: View {
   
   var body: some View {
     if viewModel.isSignedIn {
-      ToDoListItemsView()
+      accountView
     } else {
       LoginView()
     }
   }
-}
-
-struct MainView_Previews: PreviewProvider {
-  static var previews: some View {
-    MainView()
+  
+  @ViewBuilder
+  var accountView: some View {
+    TabView {
+      ToDoListView(userID: UserDefaultsService.shared.userID)
+        .tabItem {
+          Label("Home", systemImage: "house")
+        }
+      
+      ProfileView()
+        .tabItem {
+          Label("Profile", systemImage: "person.circle")
+        }
+    }
   }
 }
+
+//struct MainView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    MainView()
+//  }
+//}
