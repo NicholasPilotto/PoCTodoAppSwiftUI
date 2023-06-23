@@ -10,7 +10,7 @@ import Foundation
 class NewItemViewModel: ObservableObject {
   @Published var title = ""
   @Published var dueDate = Date()
-  @Published var showAlert = false;	
+  @Published var showAlert = false;
   
   var canSave: Bool {
     guard !title.isCompletelyEmpty else {
@@ -26,5 +26,26 @@ class NewItemViewModel: ObservableObject {
   
   public init() {}
   
-  public func save() {}
+  public func save() {
+    guard canSave else {
+      return
+    }
+    
+    let userID = UserDefaultsService.shared.userID
+    
+    let newModel = ToDoListItem(id: userID,
+                                title: title,
+                                dueData: dueDate.timeIntervalSince1970,
+                                createdDate: Date().timeIntervalSince1970,
+                                isDone: false)
+    
+    RealmService.shared.save(object: newModel) { result in
+      switch result {
+        case .success(): break
+          
+        case .failure(let error): break
+          
+      }
+    }
+  }
 }
