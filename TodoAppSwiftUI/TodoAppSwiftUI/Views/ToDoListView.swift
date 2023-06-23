@@ -10,9 +10,17 @@ import SwiftUI
 struct ToDoListView: View {
   @StateObject var viewModel = ToDoListViewModel()
   private let userID: String
+  var items: [ToDoListItem] = []
   
   init(userID: String) {
     self.userID = userID
+    
+    do {
+      self.items = try RealmService.shared.fetch(with: ToDoListItem.self).map { $0 }
+    } catch {
+      
+    }
+    
   }
   
   var body: some View {
@@ -35,8 +43,8 @@ struct ToDoListView: View {
   }
 }
 
-struct ToDoListItemsView_Previews: PreviewProvider {
-  static var previews: some View {
-    ToDoListView(userID: "")
-  }
-}
+//struct ToDoListItemsView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    ToDoListView(userID: "")
+//  }
+//}
