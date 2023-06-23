@@ -32,9 +32,9 @@ class RealmService {
     }
   }
   
-  public func fetch<T: Object>(object: T.Type) -> Results<T> {
+  public func fetch<T: Object>(with type: T.Type) throws -> Results<T> {
     return database.objects(T.self)
-  }
+}
   
   public func save<T: Object>(object: T, completion: @escaping (Result<Void, Error>) -> Void) {
     do {
