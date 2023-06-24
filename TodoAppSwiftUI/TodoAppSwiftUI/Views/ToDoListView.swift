@@ -16,7 +16,14 @@ struct ToDoListView: View {
     self.userID = userID
     
     do {
-      self.items = try RealmService.shared.fetch(with: ToDoListItem.self).map { $0 }
+      let tmp = try RealmService.shared.fetch(with: User.self)
+      tmp.where {
+        $0._id.equals(self.userID)
+      }.first?.todos.forEach({
+        self.items.append($0)
+      })
+      
+      print(tmp.first?.todos)
     } catch {
       
     }
@@ -26,7 +33,15 @@ struct ToDoListView: View {
   var body: some View {
     NavigationView {
       VStack {
-        
+        List(self.items) { item in
+          ToDoListItemView(item: item)
+            .swipeActions {
+              Button("Delete") {
+                viewModel.delete(itemId: item.id)
+              }
+            }
+        }
+        .listStyle(PlainListStyle())
       }
       .navigationTitle("To Do List")
       .toolbar {
