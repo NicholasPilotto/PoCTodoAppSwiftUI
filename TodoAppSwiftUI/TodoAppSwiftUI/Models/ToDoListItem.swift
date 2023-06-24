@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class ToDoListItem: Object {
+class ToDoListItem: Object, Identifiable {
   @Persisted var id: String
   @Persisted var title: String
   @Persisted var dueData: TimeInterval
