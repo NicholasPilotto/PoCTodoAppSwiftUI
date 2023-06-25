@@ -32,19 +32,37 @@ class NewItemViewModel: ObservableObject {
     }
     
     let userID = UserDefaultsService.shared.userID
+    var currentUser: User?
     
-    let newModel = ToDoListItem(id: userID,
+    do {
+      let tmp = try RealmService.shared.fetch(with: User.self)
+        .where {
+          $0._id.equals(userID)
+        }
+      
+      currentUser = tmp.first
+    } catch {
+      print(error)
+    }
+    
+    
+    let newModel = ToDoListItem(id: UUID().uuidString,
                                 title: title,
                                 dueData: dueDate.timeIntervalSince1970,
                                 createdDate: Date().timeIntervalSince1970,
                                 isDone: false)
+  
     
-    RealmService.shared.save(object: newModel) { result in
+    guard let currentUser = currentUser else {
+      return
+    }
+    
+    RealmService.shared.updateTodosList(object: newModel, user: currentUser) { result in
       switch result {
         case .success(): break
           
-        case .failure(let error): break
-          
+        case .failure(let error):
+          print(error)
       }
     }
   }
