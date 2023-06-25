@@ -25,7 +25,7 @@ class RealmService {
   
   private init() {
     do {
-//      database = try Realm(configuration: realmConfiguration)
+      //      database = try Realm(configuration: realmConfiguration)
       database = try Realm()
     } catch {
       fatalError(error.localizedDescription)
@@ -34,7 +34,7 @@ class RealmService {
   
   public func fetch<T: Object>(with type: T.Type) throws -> Results<T> {
     return database.objects(T.self)
-}
+  }
   
   public func save<T: Object>(object: T, completion: @escaping (Result<Void, Error>) -> Void) {
     do {
@@ -54,10 +54,23 @@ class RealmService {
         database.add(object, update: .modified)
         completion(.success(()))
       }
+    } catch {
+      completion(.failure(error))
+    }
+  }
+  
+  public func updateTodosList(object: ToDoListItem, user: User, completion: @escaping (Result<Void, Error>) -> Void) {
+    do {
+      try database.write {
+        user.todos.append(object)
+        database.add(user, update: .modified)
+        completion(.success(()))
+      }
     }
     catch {
       completion(.failure(error))
     }
+    
   }
   
   public func delete<T: Object>(object: T, completion: @escaping (Result<Void, Error>) -> Void) {
