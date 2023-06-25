@@ -10,30 +10,33 @@ import SwiftUI
 struct ToDoListView: View {
   @StateObject var viewModel = ToDoListViewModel()
   private let userID: String
-  var items: [ToDoListItem] = []
+//  var items: [ToDoListItem] = []
   
   init(userID: String) {
     self.userID = userID
-    
-    do {
-      let tmp = try RealmService.shared.fetch(with: User.self)
-      tmp.where {
-        $0._id.equals(self.userID)
-      }.first?.todos.forEach({
-        self.items.append($0)
-      })
-      
-      print(tmp.first?.todos)
-    } catch {
-      
-    }
-    
+//    refreshItems()
   }
+  
+//  private mutating func refreshItems() {
+//    self.items.removeAll()
+//
+//    do {
+//      let tmp = try RealmService.shared.fetch(with: User.self)
+//      tmp.where {
+//        $0._id.equals(self.userID)
+//      }.first?.todos.forEach({
+//        self.items.append($0)
+//      })
+//
+//    } catch {
+//    }
+//
+//  }
   
   var body: some View {
     NavigationView {
       VStack {
-        List(self.items) { item in
+        List(viewModel.items) { item in
           ToDoListItemView(item: item)
             .swipeActions {
               Button("Delete") {
