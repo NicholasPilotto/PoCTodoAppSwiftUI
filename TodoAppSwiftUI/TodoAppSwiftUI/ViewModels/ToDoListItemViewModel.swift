@@ -9,4 +9,8 @@ import Foundation
 
 class ToDoListItemViewModel: ObservableObject {
   public init() {}
+  
+  public func toggleIsDone(item: ToDoListItem) {
+    
+  }
 }
