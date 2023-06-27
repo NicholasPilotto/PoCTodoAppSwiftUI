@@ -42,6 +42,7 @@ struct ToDoListView: View {
               Button("Delete") {
                 viewModel.delete(itemId: item.id)
               }
+              .tint(.red)
             }
         }
         .listStyle(PlainListStyle())
