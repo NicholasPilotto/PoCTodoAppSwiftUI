@@ -10,44 +10,45 @@ import SwiftUI
 struct ToDoListView: View {
   @StateObject var viewModel = ToDoListViewModel()
   private let userID: String
-  @State private var items: [ToDoListItem] = []
   
   init(userID: String) {
     self.userID = userID
-    refreshItems()
+    viewModel.refreshItems(userId: self.userID)
   }
   
-  private func refreshItems() {
-    self.items.removeAll()
-
-    do {
-      let tmp = try RealmService.shared.fetch(with: User.self)
-      tmp.where {
-        $0._id.equals(self.userID)
-      }.first?.todos.forEach({
-        self.items.append($0)
-      })
-
-    } catch {
-    }
-
-  }
+//  private mutating func refreshItems() {
+//    viewModel.items.removeAll()
+//
+//    do {
+//      let tmp = try RealmService.shared.fetch(with: User.self)
+//      tmp.where {
+//        $0._id.equals(self.userID)
+//      }.first?.todos.forEach({
+//        viewModel.items.append($0)
+//      })
+//
+//    } catch {
+//    }
+//
+//  }
   
   var body: some View {
     NavigationView {
       VStack {
-        List(self.items) { item in
+        List(viewModel.items) { item in
           ToDoListItemView(item: item)
             .swipeActions {
               Button("Delete") {
-                viewModel.delete(itemId: item.id)
+                DispatchQueue.main.async {
+                  viewModel.delete(item: item)
+                }
               }
               .tint(.red)
             }
         }
         .listStyle(PlainListStyle())
         .refreshable {
-          refreshItems()
+          viewModel.refreshItems(userId: self.userID)
         }
       }
       .navigationTitle("To Do List")
@@ -63,7 +64,7 @@ struct ToDoListView: View {
       }
     }
     .onAppear() {
-      refreshItems()
+      viewModel.refreshItems(userId: self.userID)
     }
   }
 }
