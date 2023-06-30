@@ -76,6 +76,10 @@ class RealmService {
   public func delete<T: Object>(object: T, completion: @escaping (Result<Void, Error>) -> Void) {
     do {
       try database.write {
+        if (object.isInvalidated) {
+          completion(.success(()))
+          return
+        }
         database.delete(object)
         completion(.success(()))
       }
